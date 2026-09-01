@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: nailconnect-backend
+  datasource:
+    url: ${DATABASE_URL:jdbc:postgresql://localhost:5432/nailconnect}
+    username: ${DATABASE_USERNAME:nailconnect}
+    password: ${DATABASE_PASSWORD:nailconnect}
+  flyway:
+    enabled: true
+server:
+  port: ${PORT:8080}
+  error:
+    include-message: never
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+app:
+  jwt-secret: ${JWT_SECRET:development-only-secret-change-me-1234567890}
+  jwt-expiration-minutes: ${JWT_EXPIRATION_MINUTES:1440}
+  frontend-origin: ${FRONTEND_ORIGIN:http://localhost:3000}
